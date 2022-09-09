@@ -37,6 +37,12 @@ class Window:
         out_img_preview.create_image(0, 0, anchor=NW, image=out_img)
         out_img_preview.grid(row=0, column=1, sticky=W, padx=self.PAD, pady=self.PAD)
 
+        section = Text(self.root,
+                       height=5,
+                       width=20)
+
+        section.grid(row=1, column=0, columnspan=2, sticky=W, padx=self.PAD, pady=self.PAD)
+
         self.root.mainloop()
 
 
