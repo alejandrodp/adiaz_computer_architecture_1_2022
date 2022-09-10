@@ -51,6 +51,25 @@ _start:
     mov [rsi + 867], bl
     mov [rsi + 870], bh
 
+    # a
+    xor eax, eax
+    mov al, cl
+    mov edx, 2
+    mul edx
+    mov r9, 3
+    div r9
+    mov r10, rax
+    xor eax, eax
+    mov al, ch
+    mov edx, 1
+    mul edx
+    mov r9, 3
+    div r9
+    add rax, r10
+    mov [rsi + 1], al
+
+    
+
     inc rbp
     add rsi, 3
     dec edi
