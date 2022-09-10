@@ -68,7 +68,124 @@ _start:
     add rax, r10
     mov [rsi + 1], al
 
-    
+    # b
+    xor eax, eax
+    mov al, cl
+    mov edx, 1
+    mul edx
+    mov r9, 3
+    div r9
+    mov r10, rax
+    xor eax, eax
+    mov al, ch
+    mov edx, 2
+    mul edx
+    mov r9, 3
+    div r9
+    add rax, r10
+    mov [rsi + 2], al
+
+    # c
+    xor eax, eax
+    mov al, cl
+    mov edx, 2
+    mul edx
+    mov r9, 3
+    div r9
+    mov r10, rax
+    xor eax, eax
+    mov al, bl
+    mov edx, 1
+    mul edx
+    mov r9, 3
+    div r9
+    add rax, r10
+    mov [rsi + 289], al
+
+    # g
+    xor eax, eax
+    mov al, cl
+    mov edx, 1
+    mul edx
+    mov r9, 3
+    div r9
+    mov r10, rax
+    xor eax, eax
+    mov al, bl
+    mov edx, 2
+    mul edx
+    mov r9, 3
+    div r9
+    add rax, r10
+    mov [rsi + 578], al
+
+    # k
+    xor eax, eax
+    mov al, bl
+    mov edx, 2
+    mul edx
+    mov r9, 3
+    div r9
+    mov r10, rax
+    xor eax, eax
+    mov al, bh
+    mov edx, 1
+    mul edx
+    mov r9, 3
+    div r9
+    add rax, r10
+    mov [rsi + 868], al
+
+    # l
+    xor eax, eax
+    mov al, bl
+    mov edx, 1
+    mul edx
+    mov r9, 3
+    div r9
+    mov r10, rax
+    xor eax, eax
+    mov al, bh
+    mov edx, 2
+    mul edx
+    mov r9, 3
+    div r9
+    add rax, r10
+    mov [rsi + 869], al
+
+    # f
+    xor eax, eax
+    mov al, ch
+    mov edx, 2
+    mul edx
+    mov r9, 3
+    div r9
+    mov r10, rax
+    xor eax, eax
+    mov al, bh
+    mov edx, 1
+    mul edx
+    mov r9, 3
+    div r9
+    add rax, r10
+    mov [rsi + 292], al
+
+    # j
+    xor eax, eax
+    mov al, ch
+    mov edx, 1
+    mul edx
+    mov r9, 3
+    div r9
+    mov r10, rax
+    xor eax, eax
+    mov al, bh
+    mov edx, 2
+    mul edx
+    mov r9, 3
+    div r9
+    add rax, r10
+    mov [rsi + 581], al
 
     inc rbp
     add rsi, 3
