@@ -101,6 +101,7 @@ _start:
     div r9
     add rax, r10
     mov [rsi + 289], al
+    mov r11, rax
 
     # g
     xor eax, eax
@@ -118,6 +119,7 @@ _start:
     div r9
     add rax, r10
     mov [rsi + 578], al
+    mov r12, rax
 
     # k
     xor eax, eax
@@ -169,6 +171,7 @@ _start:
     div r9
     add rax, r10
     mov [rsi + 292], al
+    mov r13, rax
 
     # j
     xor eax, eax
@@ -186,6 +189,78 @@ _start:
     div r9
     add rax, r10
     mov [rsi + 581], al
+    mov r14, rax
+
+    # d
+    xor eax, eax
+    mov al, r11b
+    mov edx, 2
+    mul edx
+    mov r9, 3
+    div r9
+    mov r10, rax
+    xor eax, eax
+    mov al, r13b
+    mov edx, 1
+    mul edx
+    mov r9, 3
+    div r9
+    add rax, r10
+    mov [rsi + 290], al
+
+
+    # e
+    xor eax, eax
+    mov al, r11b
+    mov edx, 1
+    mul edx
+    mov r9, 3
+    div r9
+    mov r10, rax
+    xor eax, eax
+    mov al, r13b
+    mov edx, 2
+    mul edx
+    mov r9, 3
+    div r9
+    add rax, r10
+    mov [rsi + 291], al
+
+
+    # h
+    xor eax, eax
+    mov al, r12b
+    mov edx, 2
+    mul edx
+    mov r9, 3
+    div r9
+    mov r10, rax
+    xor eax, eax
+    mov al, r14b
+    mov edx, 1
+    mul edx
+    mov r9, 3
+    div r9
+    add rax, r10
+    mov [rsi + 579], al
+
+
+    # i
+    xor eax, eax
+    mov al, r12b
+    mov edx, 1
+    mul edx
+    mov r9, 3
+    div r9
+    mov r10, rax
+    xor eax, eax
+    mov al, r14b
+    mov edx, 2
+    mul edx
+    mov r9, 3
+    div r9
+    add rax, r10
+    mov [rsi + 580], al
 
     inc rbp
     add rsi, 3
@@ -229,5 +304,5 @@ _start:
     syscall
 
 .section .rodata
-in_file: .asciz "input.img"
-out_file: .asciz "output.img"
+in_file: .asciz "kk.img"
+out_file: .asciz "kk_amp.img"
