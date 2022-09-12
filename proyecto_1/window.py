@@ -30,20 +30,31 @@ class Window:
 
         posx = 0
         posy = 0
+        r = 97
+        l = 97
 
 
         if value_section == 1:
             posx = 97
             posy = 0
+            r = 97 * 2
+            l = 97
+
         elif value_section == 2:
             posx = 97 * 2
             posy = 0
+            r = 97 * 3
+            l = 97
         elif value_section == 3:
             posx = 97 * 3
             posy = 0
+            r = 97 * 4
+            l = 97
         elif value_section == 4:
             posx = 0
             posy = 97
+            r = 97 * 3
+            l = 97
         elif value_section == 5:
             posx = 97
             posy = 97
@@ -78,7 +89,7 @@ class Window:
             posx = 97 * 3
             posy = 97 * 3
 
-        cropped = img.crop((posx, posy, 97, 97)).convert('L')
+        cropped = img.crop((97,0,97*2,97)).convert('L')
 
         data = list(cropped.getdata())
 
