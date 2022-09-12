@@ -200,6 +200,34 @@ _start:
     dec r8
     jnz .main_loop
 
+    # Open file
+    mov eax, 2
+    lea rdi, [rip + out_file]
+    mov esi, 1 | 0100
+    mov rdx, 0666
+    syscall
+
+    # Setup write output file
+    mov rdi, rax # File descriptor
+    mov rsi, rsp # Buffer
+    mov rdx, 83521 # buffer size
+
+.write_loop:
+    mov eax, 1   # Operation
+    syscall
+    add rsi, rax
+    sub rdx, rax
+    jnz .write_loop
+
+    # Close file
+    mov eax, 3
+    syscall
+
+    # Exit program
+    mov eax, 60
+    xor edi, edi
+    syscall
+
 .section .rodata
 in_file: .asciz "input.img"
 out_file: .asciz "output.img"
