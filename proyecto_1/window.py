@@ -1,3 +1,5 @@
+import os
+import subprocess
 from pathlib import Path
 from tkinter import *
 import numpy as np
@@ -24,7 +26,7 @@ class Window:
         inp = self.section.get(1.0, "end-1c")
         value_section = int(inp)
 
-        img = Image.open('media/bacteria.jpg')
+        img = Image.open(self.BASE_DIR / 'media' / 'bacteria.jpg')
 
         posx = 0
         posy = 0
@@ -83,6 +85,7 @@ class Window:
         with open("input.img", "wb") as f:
             f.write(bytes(data))
 
+        os.system(self.BASE_DIR / 'processor')
 
     def start(self):
         input_img_frame = LabelFrame(self.root, text="Imagen de entrada")
