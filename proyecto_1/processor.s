@@ -304,5 +304,5 @@ _start:
     syscall
 
 .section .rodata
-in_file: .asciz "kk.img"
-out_file: .asciz "kk_amp.img"
+in_file: .asciz "input.img"
+out_file: .asciz "output.img"
