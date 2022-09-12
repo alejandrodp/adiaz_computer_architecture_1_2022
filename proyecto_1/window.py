@@ -87,6 +87,25 @@ class Window:
 
         os.system(self.BASE_DIR / 'processor')
 
+        pixels = []
+
+        with open("output.img", 'rb') as fil:
+            c = 289
+            while c != 0:
+                f = 289
+                row = []
+                while f != 0:
+                    byte = fil.read(1)
+                    row.append(int.from_bytes(byte, 'little'))
+                    f -= 1
+                pixels.append(row)
+                c -= 1
+
+        array = np.array(pixels, dtype=np.uint8)
+
+        new_image = Image.fromarray(array)
+        new_image.save("new_image.png")
+
     def start(self):
         input_img_frame = LabelFrame(self.root, text="Imagen de entrada")
         input_img_frame.grid(row=0, column=0, sticky=W, padx=self.PAD, pady=self.PAD)
@@ -100,11 +119,10 @@ class Window:
         out_img_frame = LabelFrame(self.root, text="Imagen de salida")
         out_img_frame.grid(row=0, column=1, sticky=W, padx=self.PAD, pady=self.PAD)
 
-        out_img_preview = Canvas(out_img_frame, self.IMAGE_INPUT_CONFIG)
-        # image = self.BASE_DIR / 'media' / 'bacteria.jpg'
-        # out_img = ImageTk.PhotoImage(Image.open(image))
-        # out_img_preview.create_image(0, 0, anchor=NW, image=out_img)
-        out_img_preview.grid(row=0, column=1, sticky=W, padx=self.PAD, pady=self.PAD)
+        self.out_img_preview = Canvas(out_img_frame, self.IMAGE_INPUT_CONFIG)
+        self.out_img_preview.grid(row=0, column=1, sticky=W, padx=self.PAD, pady=self.PAD)
+        out_img = ImageTk.PhotoImage(Image.open(image))
+        self.output_container = self.out_img_preview.create_image(0, 0, anchor=NW, image=out_img)
 
         self.section = Text(self.root,height=5,width=20)
         self.section.grid(row=1, column=0, columnspan=2, sticky=W, padx=self.PAD, pady=self.PAD)
